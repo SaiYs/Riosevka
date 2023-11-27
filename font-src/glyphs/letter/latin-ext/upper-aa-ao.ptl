@@ -1,7 +1,6 @@
 $$include '../../../meta/macros.ptl'
 
 import [mix linreg clamp fallback] from"../../../support/utils.mjs"
-import [Dotless CvDecompose] from"../../../support/gr.mjs"
 import [bitOr] from"../../../support/util/mask-bit.mjs"
 
 glyph-module
@@ -81,11 +80,6 @@ glyph-block Letter-Latin-Upper-AA-AO : begin
 				define df : DivFrame para.diversityM 3.5
 				define topSerifGap : Math.max (0.1 * (df.rightSB - df.leftSB)) [AdviceStroke 6]
 				define { left leftMask right rightMask } srcs
-
-				include : add-glyph-dependency left
-				include : add-glyph-dependency leftMask
-				include : add-glyph-dependency right
-				include : add-glyph-dependency rightMask
 
 				include [refer-glyph left] AS_BASE ALSO_METRICS
 				include : difference

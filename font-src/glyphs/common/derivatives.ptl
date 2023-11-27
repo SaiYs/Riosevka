@@ -1,7 +1,7 @@
 $$include '../../meta/macros.ptl'
 
 import [mix linreg clamp fallback] from"../../support/utils.mjs"
-import [Cv AnyCv AnyDerivingCv Dotless SvInheritableRelations CvDecompose PseudoCvDecompose getGrMesh] from"../../support/gr.mjs"
+import [Cv AnyCv AnyDerivingCv Dotless SvInheritableRelations PseudoCvDecompose getGrMesh] from"../../support/gr.mjs"
 
 extern Map
 
@@ -64,12 +64,6 @@ glyph-block Common-Derivatives : begin
 		local goal : query-glyph id
 		if [not goal] : throw : new Error "Cannot find glyph '\(id)'"
 		this.includeGlyph goal copyAnchors copyWidth
-
-	glyph-block-export add-glyph-dependency
-	define [add-glyph-dependency id] : lambda [copyAnchors copyWidth] : begin
-		local goal : query-glyph id
-		if [not goal] : throw : new Error "Cannot find glyph '\(id)'"
-		this.dependsOn goal
 
 	glyph-block-export DeriveMeshT
 	define [DeriveMeshT gnSources Query Fn FnLink] : begin
